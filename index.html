@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <!--linker la feuille de style-->
+    <link rel="stylesheet" href="style.css">
+    <!--linker le code js-->
+    <script src="script.js" defer></script>
+</head>
+
+<link href="https://unpkg.com/tailwindcss@1.9.6/dist/tailwind.min.css" rel="stylesheet">
+
+<body class="">
+    <div>
+    <div class="flex justify-end">
+    <button class="border-straight p-4 bg-red-200 m-4 text-red-700 shadow-xl  border-red-600 border-straight border-4 rounded-xl boutonRose" id="togglemode" onclick="basculerMode()">
+            Pink
+        </button>
+        <!-- <button class="border-straight p-4 bg-blue-200 m-4 text-blue-700 shadow-xl  border-blue-600 border-straight border-4 rounded-xl boutonBleu">
+            Blue
+        </button>-->
+    </div>
+    <header class="flex justify-center">
+        <h1 class="text-5xl font-bold p-8 effet-machine" id="nomSite"> Title </h1>
+    </header>
+
+    </div>
+
+    <main>
+        <section class="m-4 p-4 shadow-xl rounded-xl border-straight">
+            <h2 class="m-4 text-3xl font-bold p-8">
+                Jeu du + ou - !
+            </h2>
+
+            <p class="m-4">
+                Réussissez 5 fois en moins de 5 essais et admirez les photos !
+            </p>
+            <div class="border-straight border-4 rounded-xl p-8 shadow-xl rounded-xl">
+                <input type = "number" id="proposition" class="p-4 shadow-l rounded-xl border-straight" placeholder="Fais ta proposition">
+                <button onclick="verifier()" id="btnProposer" class="p-4 shadow-xl rounded-xl border-straight">Proposer</button>
+                <button onclick="demarrerSession()" id="btnSession"class="p-4 shadow-xl rounded-xl border-straight">Session</button>
+                <button onclick="finirSession()" id="btnfSession"class="p-4 shadow-xl rounded-xl border-straight">Finir Session</button>
+                <p id="message"></p>
+                <p id="score"></p>
+            </div>
+
+
+        </section>
+
+        <div class="flex justify-center">
+            <div class="diaporama rounded-xl m-4 p-4 shadow-xl rounded-xl border-straight">
+                <img src="https://picsum.photos/500/300?random=1" alt="Image 1" class="active">
+                <img src="https://picsum.photos/500/300?random=2" alt="Image 2">
+                <img src="https://picsum.photos/500/300?random=3" alt="Image 3">
+                <img src="https://picsum.photos/500/300?random=4" alt="Image 4">
+                <img src="https://picsum.photos/500/300?random=5" alt="Image 5">
+             </div>
+        </div>
+    </main>
+    <footer>
+        Sophie 2025/2026
+    </footer>
+</body>
+</html>
