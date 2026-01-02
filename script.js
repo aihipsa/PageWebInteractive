@@ -3,6 +3,9 @@
 
 const texteTitre = "Site dynamique"
 let indexLettre = 0;
+const diapo = document.querySelector(".diaporama");
+
+diapo.classList.remove("show");
 
 function ecrireMachine() {
     if(indexLettre < texteTitre.length){
@@ -98,7 +101,7 @@ function basculerMode(){
       btnSession.disabled = true;    // empêche de relancer pendant la session
       message.textContent = "Session démarrée !";
       nouvellePartie();              // lance la 1ère partie
-      this.images[this.indexActuel].classList.remove('active');
+      diapo.classList.remove("show");
       
     }
 
@@ -152,7 +155,7 @@ function basculerMode(){
         // Si on atteint 5 victoires => session gagnée, on stop tout
         if (victoires === OBJECTIF_VICTOIRES) {
           finirSession(`Bravo ! ${OBJECTIF_VICTOIRES} victoires atteintes ! Session terminée.`);
-          this.images[this.indexActuel].classList.add('active');
+          diapo.classList.add("show");
           return;
 
         }

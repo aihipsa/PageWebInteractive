@@ -48,6 +48,7 @@ body.mode-sombre{
     box-shadow: 0 4px 10px plum;
     margin-top: 20px;
     animation: popIn 1s ease;
+    display: none;
     }
 @keyframes popIn{
     from{ transform: scale(0.8); opacity: 0;}
@@ -67,4 +68,8 @@ body.mode-sombre{
 .diaporama img.active{
     opacity: 1;
     transform: scale(1)
+}
+
+.diaporama.show{
+    display: block;
 }
