@@ -1,4 +1,5 @@
 // Effet machine à écrire
+//jwdkbcjkw
 
 const texteTitre = "Site dynamique"
 let indexLettre = 0;
@@ -150,6 +151,7 @@ function basculerMode(){
         if (victoires === OBJECTIF_VICTOIRES) {
           finirSession(`Bravo ! ${OBJECTIF_VICTOIRES} victoires atteintes ! Session terminée.`);
           return;
+
         }
 
         // Sinon : on lance directement une nouvelle partie (session continue)
@@ -165,6 +167,8 @@ function basculerMode(){
         // on montre le nombre, puis on relance une nouvelle partie.
         message.textContent = `Perdu ! Le nombre était ${nombreMystere}. ➜ Nouvelle partie...`;
         nouvellePartie();
+        this.images.opacity = 1
+
       }
     }
 
@@ -175,5 +179,34 @@ function basculerMode(){
     // Quand on clique sur "Démarrer session"
     btnSession.addEventListener("click", demarrerSession);
 
-    // Quand on clique sur "Proposer"
-    btnProposer.addEventListener("click", verifier);
+class Diaporama{
+    constructor(classCSS){
+        this.images = document.querySelectorAll(`.${classCSS} img`) //select all img
+        this.indexActuel = 0; //index de l'image active/visible (start à 0)
+        this.demarrer();
+    }
+
+    changerImage(){
+        this.images[this.indexActuel].classList.remove('active');
+
+        this.indexActuel = (this.indexActuel + 1) % this.images.length;
+
+        this.images[this.indexActuel].classList.add('active');
+    }
+
+    demarrer(){
+        this.timer = setInterval( () => this.changerImage(), 5000);
+        document.querySelector('.diaporama').addEventListener('mouseenter', () => clearInterval(this.timer));
+        document.querySelector('.diaporama').addEventListener('mouseleave',() => {
+            clearInterval(this.timer);
+        this.timer = setInterval(() => this.changerImage(), 1000); });
+
+
+    }
+
+}
+
+const monDiapo = new Diaporama("diaporama")
+document.querySelector('.diaporama').addEventListener('click', e => {
+    e.currentTarget.requestFullscreen();
+})
