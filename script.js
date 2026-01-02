@@ -98,6 +98,8 @@ function basculerMode(){
       btnSession.disabled = true;    // empêche de relancer pendant la session
       message.textContent = "Session démarrée !";
       nouvellePartie();              // lance la 1ère partie
+      this.images[this.indexActuel].classList.remove('active');
+      
     }
 
     // Finir une session :
@@ -150,6 +152,7 @@ function basculerMode(){
         // Si on atteint 5 victoires => session gagnée, on stop tout
         if (victoires === OBJECTIF_VICTOIRES) {
           finirSession(`Bravo ! ${OBJECTIF_VICTOIRES} victoires atteintes ! Session terminée.`);
+          this.images[this.indexActuel].classList.add('active');
           return;
 
         }
@@ -167,7 +170,7 @@ function basculerMode(){
         // on montre le nombre, puis on relance une nouvelle partie.
         message.textContent = `Perdu ! Le nombre était ${nombreMystere}. ➜ Nouvelle partie...`;
         nouvellePartie();
-        this.images.opacity = 1
+
 
       }
     }
@@ -185,7 +188,6 @@ class Diaporama{
         this.indexActuel = 0; //index de l'image active/visible (start à 0)
         this.demarrer();
     }
-
     changerImage(){
         this.images[this.indexActuel].classList.remove('active');
 

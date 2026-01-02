@@ -65,6 +65,6 @@ body.mode-sombre{
 }
 
 .diaporama img.active{
-    opacity: 0;
+    opacity: 1;
     transform: scale(1)
 }
